@@ -1,0 +1,11 @@
+{
+    "name": "kodus/jpeg",
+    "autoload": {
+        "psr-4": {
+            "Kodus\\": "src/"
+        }
+    },
+    "require": {
+        "mindplay/testies": "^0.3.1"
+    }
+}
