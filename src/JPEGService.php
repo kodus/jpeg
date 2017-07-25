@@ -33,11 +33,11 @@ class JPEGService
             $bin_dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . "bin" . DIRECTORY_SEPARATOR;
 
             if (strncasecmp(PHP_OS, 'LINUX', 5) === 0) {
-                $bin_path = $bin_dir . DIRECTORY_SEPARATOR . "linux" . DIRECTORY_SEPARATOR . "jpeg-recompress";
+                $bin_path = $bin_dir . "linux" . DIRECTORY_SEPARATOR . "jpeg-recompress";
             } elseif (strncasecmp(PHP_OS, 'DARWIN', 6) === 0) {
-                $bin_path = $bin_dir . DIRECTORY_SEPARATOR . "mac" . DIRECTORY_SEPARATOR . "jpeg-recompress";
+                $bin_path = $bin_dir . "mac" . DIRECTORY_SEPARATOR . "jpeg-recompress";
             } elseif (strncasecmp(PHP_OS, 'WIN', 3) === 0) {
-                $bin_path = $bin_dir . DIRECTORY_SEPARATOR . "win" . DIRECTORY_SEPARATOR . "jpeg-recompress.exe";
+                $bin_path = $bin_dir . "win" . DIRECTORY_SEPARATOR . "jpeg-recompress.exe";
             } else {
                 throw new RuntimeException("unsupported OS: " . PHP_OS);
             }
