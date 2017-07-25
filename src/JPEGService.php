@@ -3,6 +3,8 @@
 namespace Kodus;
 
 use RuntimeException;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 /**
  * This class implements a simple service-wrapper around the `jpeg-recompress` tool.
@@ -25,7 +27,7 @@ class JPEGService
      * @param string|null $bin_path optional path to `jpeg-recompress` binary (defaults to a built-in binary)
      * @param string      $args     command-line arguments for `jpeg-recompress`, with {INPUT} and {OUTPUT} placeholders
      */
-    public function __construct(string $bin_path = null, string $args = "--min 50 --quiet {INPUT} {OUTPUT}")
+    public function __construct(string $bin_path = null, string $args = "--min 50 {INPUT} {OUTPUT}")
     {
         if ($bin_path === null) {
             $bin_dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . "bin" . DIRECTORY_SEPARATOR;
@@ -49,7 +51,7 @@ class JPEGService
      * @param string $input  absolute path to input JPEG file
      * @param string $output absolute path of output JPEG file
      *
-     * @throws RuntimeException on failure to execute the tool
+     * @throws ProcessFailedException on failure to execute the command-line tool
      */
     public function compress(string $input, string $output)
     {
@@ -61,12 +63,8 @@ class JPEGService
             ]
         );
 
-        @exec($command, $output, $status);
+        $process = new Process($command);
 
-        if ($status !== 0) {
-            $output = implode("\n", $output);
-
-            throw new RuntimeException("command failed with status: {$status}\n> {$command}\n{$output}", $status);
-        }
+        $process->mustRun();
     }
 }

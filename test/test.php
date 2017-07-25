@@ -12,6 +12,8 @@ test(
         $input = __DIR__ . '/lena.jpg';
         $output = __DIR__ . '/lena-out.jpg';
 
+        @unlink($output); // clean up from prior test-run
+
         $service->compress($input, $output);
 
         ok(file_exists($output));

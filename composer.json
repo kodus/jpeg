@@ -1,11 +1,16 @@
 {
     "name": "kodus/jpeg",
+    "description": "simple service-wrapper for the jpeg-recompress tool (for Linux/Mac/Windows)",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Kodus\\": "src/"
         }
     },
     "require": {
+        "symfony/process": "^3"
+    },
+    "require-dev": {
         "mindplay/testies": "^0.3.1"
     }
 }
