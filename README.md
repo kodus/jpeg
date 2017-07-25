@@ -8,10 +8,17 @@ Includes a bundled [release 2.1.1](https://github.com/danielgtaylor/jpeg-archive
 by [Daniel G. Taylor](https://github.com/danielgtaylor).
 
 
-### Usage
+### Setup
 
-Note that you may need to [set permissions](https://symfony.com/doc/current/setup/file_permissions.html)
-in order to run the built-in binaries - run e.g. `php test/test.php` to see if the test-suite passes.
+You may need to [set permissions](https://symfony.com/doc/current/setup/file_permissions.html)
+in order to run the built-in binaries.
+
+Run the test-suite to see if the built-in defaults make sense for your system:
+
+    php test/test.php
+
+
+### Usage
 
 ```php
 $service = new JPEGService();
