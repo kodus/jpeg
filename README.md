@@ -10,6 +10,9 @@ by [Daniel G. Taylor](https://github.com/danielgtaylor).
 
 ### Usage
 
+Note that you may need to [set permissions](https://symfony.com/doc/current/setup/file_permissions.html)
+in order to run the built-in binaries - run e.g. `php test/test.php` to see if the test-suite passes.
+
 ```php
 $service = new JPEGService();
 
