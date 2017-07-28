@@ -48,6 +48,8 @@ class JPEGService
     }
 
     /**
+     * Compress a specified JPEG file and write to a specified output path.
+     *
      * @param string $input  absolute path to input JPEG file
      * @param string $output absolute path of output JPEG file
      *
@@ -58,7 +60,7 @@ class JPEGService
         $command = strtr(
             "{$this->bin_path} {$this->args}",
             [
-                "{INPUT}" => escapeshellarg($input),
+                "{INPUT}"  => escapeshellarg($input),
                 "{OUTPUT}" => escapeshellarg($output),
             ]
         );
@@ -66,5 +68,49 @@ class JPEGService
         $process = new Process($command);
 
         $process->mustRun();
+    }
+
+    /**
+     * Compress JPEG data from a given input stream and write the output data
+     * either to a given stream, or to a temporary stream, which will be returned.
+     *
+     * @param resource      $input  input stream resource
+     * @param resource|null $output optional output stream resource
+     *
+     * @return resource output stream resource (file pointer will be at the start of the stream)
+     *
+     * @throws ProcessFailedException on failure to execute the command-line tool
+     */
+    public function compressStream($input, &$output = null)
+    {
+        $command = strtr(
+            "{$this->bin_path} {$this->args}",
+            [
+                "{INPUT}"  => "-",
+                "{OUTPUT}" => "-",
+            ]
+        );
+
+        $process = new Process($command);
+
+        $process->setInput($input);
+
+        if ($output === null) {
+            $output = fopen("php://temp", "w");
+        }
+
+        $status = $process->run(function ($type, $buffer) use ($output) {
+            if ($type === Process::OUT) {
+                fwrite($output, $buffer);
+            }
+        });
+
+        if ($status !== 0) {
+            throw new ProcessFailedException($process);
+        }
+
+        rewind($output);
+
+        return $output;
     }
 }
