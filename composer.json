@@ -8,7 +8,7 @@
         }
     },
     "require": {
-        "symfony/process": "^3"
+        "symfony/process": "^4"
     },
     "require-dev": {
         "mindplay/testies": "^0.3.1"
