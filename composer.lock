@@ -1,32 +1,32 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d72ff25225392ff1285abcf0e44dde5a",
+    "content-hash": "31d1060da924afb74bf30be808291835",
     "packages": [
         {
             "name": "symfony/process",
-            "version": "v3.3.5",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "07432804942b9f6dd7b7377faf9920af5f95d70a"
+                "reference": "2b341009ccec76837a7f46f59641b431e4d4c2b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/07432804942b9f6dd7b7377faf9920af5f95d70a",
-                "reference": "07432804942b9f6dd7b7377faf9920af5f95d70a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/2b341009ccec76837a7f46f59641b431e4d4c2b0",
+                "reference": "2b341009ccec76837a7f46f59641b431e4d4c2b0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -53,22 +53,22 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-13T13:05:09+00:00"
+            "time": "2018-11-20T16:22:05+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "mindplay/testies",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mindplay-dk/testies.git",
-                "reference": "583c2078e24cb506a698f0d78bbbd5fba6323125"
+                "reference": "e82361f346cf533be12324b990f265ba4e5f29fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mindplay-dk/testies/zipball/583c2078e24cb506a698f0d78bbbd5fba6323125",
-                "reference": "583c2078e24cb506a698f0d78bbbd5fba6323125",
+                "url": "https://api.github.com/repos/mindplay-dk/testies/zipball/e82361f346cf533be12324b990f265ba4e5f29fa",
+                "reference": "e82361f346cf533be12324b990f265ba4e5f29fa",
                 "shasum": ""
             },
             "require-dev": {
@@ -89,7 +89,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL3.0+"
+                "MIT"
             ],
             "authors": [
                 {
@@ -98,7 +98,7 @@
                 }
             ],
             "description": "Yeah, testies: a lightweight library for quick, simple unit-testing",
-            "time": "2017-06-02T13:06:21+00:00"
+            "time": "2018-10-23T07:30:41+00:00"
         }
     ],
     "aliases": [],

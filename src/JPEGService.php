@@ -65,7 +65,7 @@ class JPEGService
             ]
         );
 
-        $process = new Process($command);
+        $process = Process::fromShellCommandline($command);
 
         $process->mustRun();
     }
@@ -91,7 +91,7 @@ class JPEGService
             ]
         );
 
-        $process = new Process($command);
+        $process = Process::fromShellCommandline($command);
 
         $process->setInput($input);
 
