@@ -1,3 +1,7 @@
 /.idea
 /test/lena-out.jpg
 /vendor
+/tests/_output
+/tests/Support/_generated
+/tests/*.suite.yml
+/codeception.yml

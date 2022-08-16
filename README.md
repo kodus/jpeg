@@ -19,7 +19,7 @@ in order to run the built-in binaries.
 
 Run the test-suite to see if the built-in defaults make sense for your system:
 
-    php test/test.php
+    vendor/bin/codeception run
 
 
 ### Usage
