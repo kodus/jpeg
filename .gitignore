@@ -5,3 +5,4 @@
 /tests/Support/_generated
 /tests/*.suite.yml
 /codeception.yml
+composer.lock
