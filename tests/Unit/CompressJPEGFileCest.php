@@ -9,7 +9,7 @@ class CompressJPEGFileCest
 {
     public function testCompressJPEGFile(UnitTester $I): void
     {
-        $I->wantTo('that the code can compress a JPEG file');
+        $I->wantTo('compress a JPEG file');
 
         $service = new JPEGService();
 
@@ -20,13 +20,13 @@ class CompressJPEGFileCest
 
         $service->compress($input, $output);
 
-        $I->assertTrue(file_exists($output), 'test that file exists');
+        $I->assertTrue(file_exists($output), 'Output file was created');
 
         $I->assertTrue(filesize($output) < filesize($input) * 0.7, "image has been compressed");
 
         list($width, $height) = getimagesize($output);
 
-        $I->assertEquals(512, $width, 'test that width is correct');
-        $I->assertEquals(512, $height, 'test that height is correct');
+        $I->assertEquals(512, $width, 'width is correct');
+        $I->assertEquals(512, $height, height is correct');
     }
 }

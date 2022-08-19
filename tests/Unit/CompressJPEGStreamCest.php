@@ -9,7 +9,7 @@ class CompressJPEGStreamCest
 {
     public function testCompressJPEGStream(UnitTester $I): void
     {
-        $I->wantTo('that the code can compress a JPEG stream');
+        $I->wantTo('compress a JPEG stream');
 
         $service = new JPEGService();
 
@@ -29,7 +29,7 @@ class CompressJPEGStreamCest
 
         list($width, $height) = getimagesize($tmp_file);
 
-        $I->assertEquals(512, $width, 'test that width is correct');
-        $I->assertEquals(512, $height, 'test that height is correct');
+        $I->assertEquals(512, $width, 'width is correct');
+        $I->assertEquals(512, $height, 'height is correct');
     }
 }
