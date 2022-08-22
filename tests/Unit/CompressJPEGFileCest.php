@@ -27,6 +27,6 @@ class CompressJPEGFileCest
         list($width, $height) = getimagesize($output);
 
         $I->assertEquals(512, $width, 'width is correct');
-        $I->assertEquals(512, $height, height is correct');
+        $I->assertEquals(512, $height, 'height is correct');
     }
 }
