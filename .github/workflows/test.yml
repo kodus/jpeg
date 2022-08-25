@@ -1,0 +1,28 @@
+name: Codeception Tests
+
+on: [push]
+
+jobs:
+  build:
+    name: PHP ${{ matrix.php }} - ${{matrix.operating-system}}
+
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, ubuntu-22.04 ]
+        php: [ '8.0', '8.1']
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup PHP
+        uses: nanasess/setup-php@master
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Run tests
+        run: php vendor/bin/codecept run

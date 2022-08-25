@@ -3,7 +3,7 @@ kodus/jpeg
 
 Wrapper around [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive) for Linux/Mac/Windows.
 
-[![Build Status](https://travis-ci.org/kodus/jpeg.svg?branch=php8-update)](https://travis-ci.org/kodus/jpeg)
+![Build Status](https://github.com/kodus/jpeg/actions/workflows/test.yml/badge.svg)
 [![PHP Version](https://img.shields.io/badge/php-8.0%2B-blue.svg)](https://packagist.org/packages/kodus/jpeg)
 [![PHP Version](https://img.shields.io/badge/php-8.1%2B-blue.svg)](https://packagist.org/packages/kodus/jpeg)
 
