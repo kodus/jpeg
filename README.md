@@ -3,8 +3,9 @@ kodus/jpeg
 
 Wrapper around [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive) for Linux/Mac/Windows.
 
-[![Build Status](https://travis-ci.org/kodus/jpeg.svg?branch=master)](https://travis-ci.org/kodus/jpeg)
-[![PHP Version](https://img.shields.io/badge/php-7.1%2B-blue.svg)](https://packagist.org/packages/kodus/jpeg)
+[![Build Status](https://travis-ci.org/kodus/jpeg.svg?branch=php8-update)](https://travis-ci.org/kodus/jpeg)
+[![PHP Version](https://img.shields.io/badge/php-8.0%2B-blue.svg)](https://packagist.org/packages/kodus/jpeg)
+[![PHP Version](https://img.shields.io/badge/php-8.1%2B-blue.svg)](https://packagist.org/packages/kodus/jpeg)
 
 Includes a bundled [release 2.1.1](https://github.com/danielgtaylor/jpeg-archive/releases/tag/2.1.1) of the
 [JPEG-Archive](https://github.com/danielgtaylor/jpeg-archive) binaries as provided
@@ -18,7 +19,7 @@ in order to run the built-in binaries.
 
 Run the test-suite to see if the built-in defaults make sense for your system:
 
-    php test/test.php
+    vendor/bin/codeception run
 
 
 ### Usage

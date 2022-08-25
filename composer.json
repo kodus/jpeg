@@ -7,11 +7,17 @@
             "Kodus\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Kodus\\JPEG\\Test\\Unit\\": "tests/Unit/"
+        }
+    },
     "require": {
-        "php": ">= 7.1",
+        "php": ">= 8.0",
         "symfony/process": "^4.2"
     },
     "require-dev": {
-        "mindplay/testies": "^0.3.1"
+        "codeception/codeception": "^5.0.1",
+        "codeception/module-asserts": "^3.0.0"
     }
 }
