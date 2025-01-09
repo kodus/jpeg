@@ -14,37 +14,26 @@ use Symfony\Component\Process\Process;
 class JPEGService
 {
     /**
-     * @var string
-     */
-    private $bin_path;
-
-    /**
-     * @var string
-     */
-    private $args;
-
-    /**
      * @param string|null $bin_path optional path to `jpeg-recompress` binary (defaults to a built-in binary)
      * @param string      $args     command-line arguments for `jpeg-recompress`, with {INPUT} and {OUTPUT} placeholders
      */
-    public function __construct(string $bin_path = null, string $args = "--min 50 {INPUT} {OUTPUT}")
-    {
+    public function __construct(
+        private ?string $bin_path = null,
+        private string $args = "--min 50 {INPUT} {OUTPUT}"
+    ) {
         if ($bin_path === null) {
             $bin_dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . "bin" . DIRECTORY_SEPARATOR;
 
             if (strncasecmp(PHP_OS, "LINUX", 5) === 0) {
-                $bin_path = $bin_dir . "linux" . DIRECTORY_SEPARATOR . "jpeg-recompress";
+                $this->bin_path = $bin_dir . "linux" . DIRECTORY_SEPARATOR . "jpeg-recompress";
             } elseif (strncasecmp(PHP_OS, "DARWIN", 6) === 0) {
-                $bin_path = $bin_dir . "mac" . DIRECTORY_SEPARATOR . "jpeg-recompress";
+                $this->bin_path = $bin_dir . "mac" . DIRECTORY_SEPARATOR . "jpeg-recompress";
             } elseif (strncasecmp(PHP_OS, "WIN", 3) === 0) {
-                $bin_path = $bin_dir . "win" . DIRECTORY_SEPARATOR . "jpeg-recompress.exe";
+                $this->bin_path = $bin_dir . "win" . DIRECTORY_SEPARATOR . "jpeg-recompress.exe";
             } else {
                 throw new RuntimeException("unsupported OS: " . PHP_OS);
             }
         }
-
-        $this->bin_path = $bin_path;
-        $this->args = $args;
     }
 
     /**
@@ -55,7 +44,7 @@ class JPEGService
      *
      * @throws ProcessFailedException on failure to execute the command-line tool
      */
-    public function compress(string $input, string $output)
+    public function compress(string $input, string $output): void
     {
         $command = strtr(
             "{$this->bin_path} {$this->args}",
